@@ -1,10 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>GD Community</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -13,14 +16,17 @@
 <div class="sidebar">
 
     <!-- CLUB HEADER -->
+
     <a class="club-header"
        href="YOUR-CLUB-HOMEPAGE-URL"
        target="_blank"
        rel="noopener noreferrer">
 
-        <img src="robtop_cube.gif"
-             alt="GD Community Logo"
-             class="club-logo">
+        <img
+            src="robtop_cube.gif"
+            alt="GD Community Logo"
+            class="club-logo"
+        >
 
         <div class="club-title">
             <h1>GD Community</h1>
@@ -29,9 +35,12 @@
 
     </a>
 
+
     <div class="separator"></div>
 
-    <!-- COMMUNITY LINKS -->
+
+    <!-- COMMUNITY NAVIGATION -->
+
     <div class="section">
 
         <h2>COMMUNITY</h2>
@@ -49,7 +58,9 @@
             </span>
 
             <span class="arrow">↗</span>
+
         </a>
+
 
         <a class="nav-item"
            href="https://www.chess.com/clubs/forum/view/promotions-100"
@@ -64,7 +75,9 @@
             </span>
 
             <span class="arrow">↗</span>
+
         </a>
+
 
         <a class="nav-item"
            href="https://www.chess.com/clubs/forum/view/suggestions-10747"
@@ -79,7 +92,9 @@
             </span>
 
             <span class="arrow">↗</span>
+
         </a>
+
 
         <a class="nav-item"
            href="https://www.chess.com/clubs/forum/view/completions"
@@ -94,32 +109,146 @@
             </span>
 
             <span class="arrow">↗</span>
+
         </a>
 
     </div>
 
+
     <div class="separator"></div>
 
-    <!-- FUTURE MUSIC SECTION -->
+
+    <!-- MEMBER COUNTER -->
+
+    <div class="member-counter">
+
+        <div class="member-icon">👥</div>
+
+        <div class="member-info">
+
+            <strong id="member-count">Loading...</strong>
+
+            <small>COMMUNITY MEMBERS</small>
+
+            <small id="member-updated">Fetching latest data...</small>
+
+        </div>
+
+        <div class="live-indicator">
+            <span></span>
+            LIVE
+        </div>
+
+    </div>
+
+
+    <div class="separator"></div>
+
+
+    <!-- FUTURE MUSIC LIBRARY -->
+
     <div class="section">
 
         <h2>COMING SOON</h2>
 
         <div class="placeholder">
+
             <span>♫</span>
+
             <p>Music Library</p>
+
             <small>More features coming soon...</small>
+
         </div>
 
     </div>
 
+
     <!-- FOOTER -->
+
     <div class="footer">
         GD COMMUNITY
     </div>
 
 </div>
 
+
+<!-- MEMBER COUNT SCRIPT -->
+
+<script>
+
+async function updateMemberCount() {
+
+    const countElement =
+        document.getElementById("member-count");
+
+    const updatedElement =
+        document.getElementById("member-updated");
+
+    try {
+
+        const response = await fetch(
+            "members.json?cache=" + Date.now(),
+            { cache: "no-store" }
+        );
+
+        if (!response.ok) {
+            throw new Error("Could not load member data");
+        }
+
+        const data = await response.json();
+
+        if (!Number.isInteger(data.members)) {
+            throw new Error("Member count unavailable");
+        }
+
+        // Display member count
+
+        countElement.textContent =
+            data.members.toLocaleString();
+
+        // Display last update time
+
+        if (data.updated_at) {
+
+            const updateTime =
+                new Date(data.updated_at);
+
+            updatedElement.textContent =
+                "Updated " +
+                updateTime.toLocaleString();
+
+        } else {
+
+            updatedElement.textContent =
+                "Update time unavailable";
+
+        }
+
+    } catch (error) {
+
+        countElement.textContent = "Unavailable";
+
+        updatedElement.textContent =
+            "Unable to fetch member data";
+
+        console.error(error);
+
+    }
+
+}
+
+
+// Run immediately
+
+updateMemberCount();
+
+
+// Refresh every five minutes
+
+setInterval(updateMemberCount, 5 * 60 * 1000);
+
+</script>
+
 </body>
 </html>
-
