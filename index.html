@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +37,7 @@
 
         <div class="club-title">
             <h1>GD Community</h1>
-            <p>GEOMETRY DASH COMMUNITY</p>
+            <p>HOME OF THE DASHERS</p>
         </div>
 
     </a>
@@ -192,19 +191,100 @@
     <div class="separator"></div>
 
 
-    <!-- FUTURE MUSIC LIBRARY -->
+    <!-- CREO MUSIC LIBRARY -->
 
     <div class="section">
 
-        <h2>COMING SOON</h2>
+        <h2>MUSIC COLLECTION</h2>
 
         <div class="placeholder">
 
-            <span>♫</span>
+            <h3 class="creo-title">
+                CREO LIBRARY
+            </h3>
 
-            <p>Music Library</p>
 
-            <small>More features coming soon...</small>
+            <!-- YOUTUBE PLAYER -->
+
+            <div class="creo-player-wrapper">
+
+                <div id="creo-player"></div>
+
+            </div>
+
+
+            <!-- SONG SELECTION BUTTONS -->
+
+            <div class="creo-song-list">
+
+
+                <!-- FLOW -->
+
+                <div class="creo-song">
+
+                    <span class="creo-song-name">
+                        CREO — FLOW
+                    </span>
+
+                    <button
+                        type="button"
+                        class="creo-play-button active"
+                        data-song="flow"
+                        aria-label="Play Creo Flow"
+                        aria-pressed="true"
+                        onclick="chooseCreoSong('flow')"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+                <!-- SPHERE -->
+
+                <div class="creo-song">
+
+                    <span class="creo-song-name">
+                        CREO — SPHERE
+                    </span>
+
+                    <button
+                        type="button"
+                        class="creo-play-button"
+                        data-song="sphere"
+                        aria-label="Play Creo Sphere"
+                        aria-pressed="false"
+                        onclick="chooseCreoSong('sphere')"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+                <!-- EPILOGUE -->
+
+                <div class="creo-song">
+
+                    <span class="creo-song-name">
+                        CREO — EPILOGUE
+                    </span>
+
+                    <button
+                        type="button"
+                        class="creo-play-button"
+                        data-song="epilogue"
+                        aria-label="Play Creo Epilogue"
+                        aria-pressed="false"
+                        onclick="chooseCreoSong('epilogue')"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+            </div>
 
         </div>
 
@@ -220,7 +300,9 @@
 </div>
 
 
-<!-- MEMBER COUNT SCRIPT -->
+<!-- =====================================
+     MEMBER COUNT SCRIPT
+     ===================================== -->
 
 <script>
 
@@ -355,6 +437,178 @@ setInterval(
     updateMemberCount,
     5 * 60 * 1000
 );
+
+</script>
+
+
+<!-- =====================================
+     CREO YOUTUBE MUSIC PLAYER
+     ===================================== -->
+
+<script>
+
+// YOUTUBE VIDEO IDS
+
+const creoSongs = {
+
+    flow: "MM87r7GjzW8",
+
+    sphere: "0ZUoFPLlVQU",
+
+    epilogue: "tOZNh8veU_Y"
+
+};
+
+
+// FLOW IS THE DEFAULT SONG
+
+let currentCreoSong = "flow";
+
+let creoPlayer = null;
+
+let youtubeApiReady = false;
+
+
+// UPDATE THE ACTIVE SONG BUTTON
+
+function updateCreoButtons(songName) {
+
+    document
+        .querySelectorAll(".creo-play-button")
+        .forEach(button => {
+
+            const isActive =
+                button.dataset.song === songName;
+
+            button.classList.toggle(
+                "active",
+                isActive
+            );
+
+            button.setAttribute(
+                "aria-pressed",
+                isActive ? "true" : "false"
+            );
+
+        });
+
+}
+
+
+// PLAY A SELECTED SONG
+
+function chooseCreoSong(songName) {
+
+    if (!creoSongs[songName]) {
+        return;
+    }
+
+
+    currentCreoSong = songName;
+
+
+    // UPDATE BUTTON HIGHLIGHT
+
+    updateCreoButtons(songName);
+
+
+    // SWITCH THE YOUTUBE PLAYER
+
+    if (creoPlayer && youtubeApiReady) {
+
+        creoPlayer.loadVideoById(
+            creoSongs[songName]
+        );
+
+    }
+
+}
+
+
+// LOAD THE YOUTUBE IFRAME API
+
+function loadYouTubeAPI() {
+
+    const tag =
+        document.createElement("script");
+
+    tag.src =
+        "https://www.youtube.com/iframe_api";
+
+    const firstScript =
+        document.getElementsByTagName("script")[0];
+
+    firstScript.parentNode.insertBefore(
+        tag,
+        firstScript
+    );
+
+}
+
+
+// YOUTUBE CALLS THIS WHEN THE API IS READY
+
+function onYouTubeIframeAPIReady() {
+
+    youtubeApiReady = true;
+
+
+    creoPlayer = new YT.Player(
+        "creo-player",
+        {
+
+            width: "100%",
+
+            height: "100%",
+
+            videoId: creoSongs[currentCreoSong],
+
+            playerVars: {
+
+                autoplay: 0,
+
+                controls: 1,
+
+                rel: 0,
+
+                modestbranding: 1,
+
+                playsinline: 1
+
+            },
+
+            events: {
+
+                onReady: function () {
+
+                    // ENSURE THE DEFAULT SONG IS LOADED
+
+                    if (currentCreoSong !== "flow") {
+
+                        creoPlayer.cueVideoById(
+                            creoSongs[currentCreoSong]
+                        );
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+// START LOADING THE YOUTUBE API
+
+loadYouTubeAPI();
+
+
+// SET DEFAULT BUTTON STATE
+
+updateCreoButtons("flow");
 
 </script>
 
