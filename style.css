@@ -242,7 +242,7 @@ body {
     background: #29451F;
     border: 1px solid #496F32;
     border-radius: 7px;
-    font-size: 20px;
+    font-size: 9px;
     font-weight: 900;
     color: var(--lime);
     text-align: center;
@@ -399,13 +399,6 @@ body {
     border-radius: 3px !important;
     box-shadow: none !important;
     background: transparent;
-}
-
-
-/* HIDE THE OLD BESIDE-THE-PICTURE USERNAME */
-
-.owner-profile-name {
-    display: none;
 }
 
 
