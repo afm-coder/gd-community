@@ -561,7 +561,7 @@ body {
 
 
 /* =====================================
-   CREO MUSIC LIBRARY
+   CREO MUSIC COLLECTION
    ===================================== */
 
 
@@ -576,25 +576,6 @@ body {
     border: 1px dashed var(--mini-border);
 
     border-radius: 10px;
-
-}
-
-
-/* CREO LIBRARY TITLE */
-
-.creo-title {
-
-    margin: 0 0 13px;
-
-    font-size: 19px;
-
-    font-weight: 900;
-
-    letter-spacing: 1.5px;
-
-    color: var(--lavender);
-
-    text-align: center;
 
 }
 
