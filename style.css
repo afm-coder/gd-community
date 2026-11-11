@@ -1,3 +1,4 @@
+
 /* =====================================
    GD COMMUNITY SIDEBAR
    ===================================== */
@@ -6,7 +7,6 @@
 /* COLOUR SETTINGS */
 
 :root {
-
     --background: #180F26;
     --container: #211530;
     --mini: #2B1D3B;
@@ -18,11 +18,8 @@
     --muted: #BCA9D1;
     --accent: #C5A5ED;
 
-    /* LIME GREEN */
-
     --lime: #A6FF45;
     --lime-dark: #83D92D;
-
 }
 
 
@@ -32,36 +29,48 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    min-height: 100%;
+}
+
 body {
-
     margin: 0;
-    padding: 12px;
+    padding: 0;
 
-    background: transparent;
+    width: 100%;
+    min-height: 100vh;
+
+    background: var(--background);
 
     font-family: 'Inter', sans-serif;
-
     color: var(--lavender);
-
 }
 
 
 /* MAIN CONTAINER */
 
 .sidebar {
-
     width: 100%;
-    max-width: 300px;
+    max-width: none;
 
-    margin: auto;
+    min-height: 100vh;
+
+    margin: 0;
     padding: 13px;
 
     background: var(--background);
 
-    border: 1px solid var(--border);
+    border: none;
+    border-radius: 0;
+}
 
-    border-radius: 17px;
 
+/* MAKE ALL MAIN SECTIONS STRETCH */
+
+.sidebar > * {
+    width: 100%;
+    max-width: none;
 }
 
 
@@ -70,74 +79,57 @@ body {
    ===================================== */
 
 .club-header {
-
     display: flex;
     align-items: center;
 
     gap: 11px;
 
-    padding: 8px;
+    width: 100%;
+    padding: 7px 8px;
 
     border-radius: 12px;
 
     color: var(--lavender);
-
     text-decoration: none;
 
     transition: background 0.2s ease;
-
 }
 
 .club-header:hover {
-
     background: var(--mini);
-
 }
 
-
 .club-logo {
-
     width: 55px;
     height: 55px;
 
+    flex-shrink: 0;
+
     object-fit: contain;
-
     border-radius: 11px;
-
 }
-
 
 .club-title {
-
     flex: 1;
     min-width: 0;
-
 }
 
-
 .club-title h1 {
-
     margin: 0;
 
-    font-size: 19px;
-
+    font-size: 15px;
     font-weight: 800;
 
     letter-spacing: 0.1px;
-
 }
 
-
 .club-title p {
+    margin: 3px 0 0;
 
-    margin: 5px 0 0;
-
-    font-size: 9px;
-
-    letter-spacing: 1px;
+    font-size: 8px;
+    letter-spacing: 0.8px;
 
     color: var(--muted);
-
 }
 
 
@@ -146,15 +138,14 @@ body {
    ===================================== */
 
 .separator {
-
+    width: 100%;
     height: 1px;
 
     background: var(--border);
 
-    margin: 13px 2px;
+    margin: 13px 0;
 
     opacity: 0.8;
-
 }
 
 
@@ -163,32 +154,26 @@ body {
    ===================================== */
 
 .section {
+    width: 100%;
 
     padding: 12px;
 
     background: var(--container);
 
     border: 1px solid var(--border);
-
     border-radius: 13px;
-
 }
 
-
 .section h2 {
-
     margin: 0 0 11px;
 
     font-size: 14px;
-
     font-weight: 900;
 
     letter-spacing: 2px;
 
     color: var(--accent);
-
     text-align: center;
-
 }
 
 
@@ -197,98 +182,70 @@ body {
    ===================================== */
 
 .nav-item {
-
     display: flex;
     align-items: center;
 
     gap: 10px;
 
-    padding: 11px 9px;
+    width: 100%;
 
+    padding: 11px 9px;
     margin-bottom: 8px;
 
     background: var(--mini);
 
     border: 1px solid var(--mini-border);
-
     border-radius: 10px;
 
     color: var(--lavender);
-
     text-decoration: none;
 
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
         transform 0.2s ease;
-
 }
-
 
 .nav-item:last-child {
-
     margin-bottom: 0;
-
 }
 
-
 .nav-item:hover {
-
     background: #3A2850;
-
     border-color: var(--accent);
 
     transform: translateY(-2px);
-
 }
 
 
 /* NAVIGATION ICONS */
 
 .nav-icon {
-
     font-size: 19px;
-
 }
 
-
 .nav-text {
-
     display: flex;
-
     flex-direction: column;
 
     flex: 1;
 
     gap: 4px;
-
 }
-
 
 .nav-text strong {
-
     font-size: 12px;
-
     font-weight: 700;
-
 }
-
 
 .nav-text small {
-
     font-size: 9px;
-
     color: var(--muted);
-
 }
 
-
 .arrow {
-
     font-size: 14px;
-
     color: var(--accent);
-
 }
 
 
@@ -297,7 +254,6 @@ body {
    ===================================== */
 
 .member-progress {
-
     width: 100%;
 
     padding: 13px;
@@ -305,28 +261,21 @@ body {
     background: var(--container);
 
     border: 1px solid var(--border);
-
     border-radius: 13px;
 
     transition:
         background 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease;
-
 }
 
-
-/* MATCH THE OTHER MINI-DIV HOVER EFFECTS */
-
 .member-progress:hover {
-
     background: #281C37;
 
     border-color: var(--accent);
 
     box-shadow:
         0 4px 12px rgba(0, 0, 0, 0.18);
-
 }
 
 
@@ -335,47 +284,45 @@ body {
    ===================================== */
 
 .progress-heading {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     width: 100%;
 
     gap: 6px;
-
     margin-bottom: 13px;
-
 }
 
 
-/* SMALLER SINGLE-LINE TITLE */
+/* SMALLER MEMBER COUNT TITLE */
 
 .progress-heading > span:first-child {
-
     flex: 1;
-
     min-width: 0;
 
     white-space: nowrap;
 
-    font-size: 11px;
-
+    font-size: 0;
     font-weight: 900;
 
     letter-spacing: 0.3px;
 
     color: var(--lavender);
+}
 
+/* REPLACE OLD HEADING TEXT */
+
+.progress-heading > span:first-child::before {
+    content: "MEMBER COUNT";
+
+    font-size: 9px;
 }
 
 
 /* PERCENTAGE BADGE */
 
 .progress-percentage {
-
     flex-shrink: 0;
 
     padding: 4px 9px;
@@ -383,20 +330,16 @@ body {
     background: #29451F;
 
     border: 1px solid #496F32;
-
     border-radius: 7px;
 
     font-size: 12px;
-
     font-weight: 900;
 
     color: var(--lime);
-
     text-align: center;
 
     box-shadow:
         inset 0 1px 3px rgba(166, 255, 69, 0.08);
-
 }
 
 
@@ -405,90 +348,73 @@ body {
    ===================================== */
 
 .progress-row {
-
     display: flex;
-
     align-items: center;
 
     gap: 9px;
 
     width: 100%;
-
 }
 
 
 /* CURRENT MEMBER COUNT */
 
 .member-count {
-
     min-width: 25px;
 
     font-size: 20px;
-
     font-weight: 900;
 
     color: var(--lavender);
-
     text-align: left;
 
     line-height: 1;
-
 }
 
 
 /* GOAL NUMBER */
 
 .member-goal {
-
     min-width: 25px;
 
     font-size: 20px;
-
     font-weight: 900;
 
     color: var(--lavender);
-
     text-align: right;
 
     line-height: 1;
-
 }
 
 
 /* PROGRESS BAR BACKGROUND */
 
 .progress-track {
-
     position: relative;
 
     flex: 1;
 
     height: 9px;
-
     min-width: 0;
 
     background: #392B47;
 
     border: 1px solid #59486A;
-
     border-radius: 999px;
 
     overflow: hidden;
-
 }
 
 
 /* GRADIENT LIME GREEN FILL */
 
 .progress-fill {
-
     position: absolute;
 
     top: 0;
     left: 0;
 
     width: 0%;
-
     height: 100%;
 
     background: linear-gradient(
@@ -505,7 +431,6 @@ body {
 
     transition:
         width 1s cubic-bezier(0.22, 1, 0.36, 1);
-
 }
 
 
@@ -514,49 +439,33 @@ body {
    ===================================== */
 
 .progress-footer {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 5px;
 
     margin-top: 13px;
-
     padding-top: 9px;
 
     border-top: 1px solid rgba(118, 90, 150, 0.55);
-
 }
 
-
-/* UPDATE FREQUENCY */
-
 .update-frequency {
-
     font-size: 8px;
 
     color: var(--muted);
 
     white-space: nowrap;
-
 }
 
-
-/* LAST UPDATE */
-
 .member-updated {
-
     font-size: 8px;
 
     color: var(--accent);
 
     white-space: nowrap;
-
     text-align: right;
-
 }
 
 
@@ -564,19 +473,15 @@ body {
    CREO MUSIC COLLECTION
    ===================================== */
 
-
-/* DOTTED-LINE CONTAINER */
-
 .placeholder {
+    width: 100%;
 
     padding: 13px 9px;
 
     background: var(--mini);
 
     border: 1px dashed var(--mini-border);
-
     border-radius: 10px;
-
 }
 
 
@@ -585,11 +490,9 @@ body {
    ===================================== */
 
 .creo-player-wrapper {
-
     position: relative;
 
     width: 100%;
-
     aspect-ratio: 16 / 9;
 
     margin-bottom: 12px;
@@ -597,21 +500,18 @@ body {
     background: #100B18;
 
     border: 1px solid var(--mini-border);
-
     border-radius: 11px;
 
     overflow: hidden;
 
     box-shadow:
         0 3px 10px rgba(0, 0, 0, 0.25);
-
 }
 
 
 /* PLAYER ELEMENT */
 
 #creo-player {
-
     position: absolute;
 
     top: 0;
@@ -619,23 +519,19 @@ body {
 
     width: 100%;
     height: 100%;
-
 }
 
 
 /* YOUTUBE IFRAME */
 
 .creo-player-wrapper iframe {
-
     display: block;
 
     width: 100% !important;
     height: 100% !important;
 
     border: 0;
-
     border-radius: 11px;
-
 }
 
 
@@ -644,32 +540,25 @@ body {
    ===================================== */
 
 .creo-song-list {
-
     display: flex;
-
     flex-direction: column;
 
     gap: 8px;
 
     width: 100%;
-
 }
 
 
 /* INDIVIDUAL SONG DIV */
 
 .creo-song {
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     gap: 8px;
 
     width: 100%;
-
     min-height: 48px;
 
     padding: 8px 9px;
@@ -677,7 +566,6 @@ body {
     background: #211530;
 
     border: 1px solid var(--mini-border);
-
     border-radius: 9px;
 
     transition:
@@ -685,14 +573,12 @@ body {
         border-color 0.2s ease,
         transform 0.2s ease,
         box-shadow 0.2s ease;
-
 }
 
 
 /* SONG DIV HOVER */
 
 .creo-song:hover {
-
     background: #38264B;
 
     border-color: var(--accent);
@@ -701,28 +587,22 @@ body {
 
     box-shadow:
         0 3px 9px rgba(0, 0, 0, 0.2);
-
 }
 
 
 /* SONG NAME */
 
 .creo-song-name {
-
     flex: 1;
-
     min-width: 0;
 
     font-size: 12px;
-
     font-weight: 900;
 
     letter-spacing: 0.2px;
 
     color: var(--lavender);
-
     text-align: left;
-
 }
 
 
@@ -731,11 +611,8 @@ body {
    ===================================== */
 
 .creo-play-button {
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     flex-shrink: 0;
@@ -748,15 +625,12 @@ body {
     background: #392B47;
 
     border: 1px solid #987BB5;
-
     border-radius: 8px;
 
     color: var(--lavender);
 
     font-family: inherit;
-
     font-size: 13px;
-
     font-weight: 900;
 
     cursor: pointer;
@@ -767,27 +641,23 @@ body {
         color 0.2s ease,
         transform 0.2s ease,
         box-shadow 0.2s ease;
-
 }
 
 
 /* BUTTON HOVER */
 
 .creo-play-button:hover {
-
     background: #4A3560;
 
     border-color: var(--accent);
 
     transform: scale(1.07);
-
 }
 
 
 /* SELECTED SONG BUTTON */
 
 .creo-play-button.active {
-
     background: #29451F;
 
     border-color: #83D92D;
@@ -796,29 +666,22 @@ body {
 
     box-shadow:
         0 0 8px rgba(166, 255, 69, 0.18);
-
 }
 
 
 /* SELECTED BUTTON HOVER */
 
 .creo-play-button.active:hover {
-
     background: #355A27;
-
     border-color: var(--lime);
-
 }
 
 
 /* BUTTON FOCUS */
 
 .creo-play-button:focus-visible {
-
     outline: 2px solid var(--lime);
-
     outline-offset: 3px;
-
 }
 
 
@@ -827,17 +690,16 @@ body {
    ===================================== */
 
 .footer {
+    width: 100%;
 
     margin-top: 13px;
 
     text-align: center;
 
     font-size: 9px;
-
     font-weight: 600;
 
     letter-spacing: 2px;
 
     color: var(--muted);
-
 }
