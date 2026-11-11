@@ -1,4 +1,3 @@
-
 /* =====================================
    GD COMMUNITY SIDEBAR
    ===================================== */
@@ -562,14 +561,15 @@ body {
 
 
 /* =====================================
-   FUTURE FEATURES
+   CREO MUSIC LIBRARY
    ===================================== */
+
+
+/* DOTTED-LINE CONTAINER */
 
 .placeholder {
 
-    padding: 17px 8px;
-
-    text-align: center;
+    padding: 13px 9px;
 
     background: var(--mini);
 
@@ -580,31 +580,263 @@ body {
 }
 
 
-.placeholder span {
+/* CREO LIBRARY TITLE */
 
-    font-size: 25px;
+.creo-title {
 
-    color: var(--accent);
+    margin: 0 0 13px;
+
+    font-size: 19px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    color: var(--lavender);
+
+    text-align: center;
 
 }
 
 
-.placeholder p {
+/* =====================================
+   YOUTUBE PLAYER
+   ===================================== */
 
-    margin: 7px 0 4px;
+.creo-player-wrapper {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    margin-bottom: 12px;
+
+    background: #100B18;
+
+    border: 1px solid var(--mini-border);
+
+    border-radius: 11px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.25);
+
+}
+
+
+/* PLAYER ELEMENT */
+
+#creo-player {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+}
+
+
+/* YOUTUBE IFRAME */
+
+.creo-player-wrapper iframe {
+
+    display: block;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    border: 0;
+
+    border-radius: 11px;
+
+}
+
+
+/* =====================================
+   SONG LIST
+   ===================================== */
+
+.creo-song-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    width: 100%;
+
+}
+
+
+/* INDIVIDUAL SONG DIV */
+
+.creo-song {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 8px;
+
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 8px 9px;
+
+    background: #211530;
+
+    border: 1px solid var(--mini-border);
+
+    border-radius: 9px;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+/* SONG DIV HOVER */
+
+.creo-song:hover {
+
+    background: #38264B;
+
+    border-color: var(--accent);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 3px 9px rgba(0, 0, 0, 0.2);
+
+}
+
+
+/* SONG NAME */
+
+.creo-song-name {
+
+    flex: 1;
+
+    min-width: 0;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.2px;
+
+    color: var(--lavender);
+
+    text-align: left;
+
+}
+
+
+/* =====================================
+   PLAY BUTTON
+   ===================================== */
+
+.creo-play-button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 31px;
+    height: 31px;
+
+    padding: 0;
+
+    background: #392B47;
+
+    border: 1px solid #987BB5;
+
+    border-radius: 8px;
+
+    color: var(--lavender);
+
+    font-family: inherit;
 
     font-size: 13px;
 
-    font-weight: 700;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 
 }
 
 
-.placeholder small {
+/* BUTTON HOVER */
 
-    font-size: 9px;
+.creo-play-button:hover {
 
-    color: var(--muted);
+    background: #4A3560;
+
+    border-color: var(--accent);
+
+    transform: scale(1.07);
+
+}
+
+
+/* SELECTED SONG BUTTON */
+
+.creo-play-button.active {
+
+    background: #29451F;
+
+    border-color: #83D92D;
+
+    color: var(--lime);
+
+    box-shadow:
+        0 0 8px rgba(166, 255, 69, 0.18);
+
+}
+
+
+/* SELECTED BUTTON HOVER */
+
+.creo-play-button.active:hover {
+
+    background: #355A27;
+
+    border-color: var(--lime);
+
+}
+
+
+/* BUTTON FOCUS */
+
+.creo-play-button:focus-visible {
+
+    outline: 2px solid var(--lime);
+
+    outline-offset: 3px;
 
 }
 
