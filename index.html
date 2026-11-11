@@ -118,25 +118,64 @@
     <div class="separator"></div>
 
 
-    <!-- MEMBER COUNTER -->
+    <!-- MEMBER PROGRESS -->
 
-    <div class="member-counter">
+    <div class="member-progress">
 
-        <div class="member-icon">👥</div>
+        <div class="progress-heading">
 
-        <div class="member-info">
+            <span>CLUB MEMBER COUNT</span>
 
-            <strong id="member-count">Loading...</strong>
-
-            <small>COMMUNITY MEMBERS</small>
-
-            <small id="member-updated">Fetching latest data...</small>
+            <span
+                id="progress-percentage"
+                class="progress-percentage"
+            >
+                0%
+            </span>
 
         </div>
 
-        <div class="live-indicator">
-            <span></span>
-            LIVE
+
+        <div class="progress-row">
+
+            <strong
+                id="member-count"
+                class="member-count"
+            >
+                --
+            </strong>
+
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    id="progress-fill"
+                ></div>
+
+            </div>
+
+
+            <strong class="member-goal">
+                20
+            </strong>
+
+        </div>
+
+
+        <div class="progress-footer">
+
+            <span class="update-frequency">
+                Updates every 30 minutes
+            </span>
+
+            <span
+                id="member-updated"
+                class="member-updated"
+            >
+                Last update: --
+            </span>
+
         </div>
 
     </div>
@@ -177,6 +216,9 @@
 
 <script>
 
+const MEMBER_GOAL = 20;
+
+
 async function updateMemberCount() {
 
     const countElement =
@@ -184,6 +226,13 @@ async function updateMemberCount() {
 
     const updatedElement =
         document.getElementById("member-updated");
+
+    const progressFill =
+        document.getElementById("progress-fill");
+
+    const progressPercentage =
+        document.getElementById("progress-percentage");
+
 
     try {
 
@@ -198,39 +247,87 @@ async function updateMemberCount() {
 
         const data = await response.json();
 
-        if (!Number.isInteger(data.members)) {
-            throw new Error("Member count unavailable");
+        if (
+            !Number.isInteger(data.members) ||
+            data.members < 0
+        ) {
+            throw new Error("Invalid member count");
         }
 
-        // Display member count
+
+        // MEMBER COUNT
+
+        const members = data.members;
+
+
+        // CALCULATE PROGRESS
+
+        const percentage = Math.min(
+            (members / MEMBER_GOAL) * 100,
+            100
+        );
+
+
+        // DISPLAY MEMBER COUNT
 
         countElement.textContent =
-            data.members.toLocaleString();
+            members.toLocaleString();
 
-        // Display last update time
+
+        // UPDATE BAR
+
+        progressFill.style.width =
+            percentage + "%";
+
+
+        // UPDATE PERCENTAGE
+
+        progressPercentage.textContent =
+            Math.round(percentage) + "%";
+
+
+        // FETCH AND DISPLAY LAST UPDATE
 
         if (data.updated_at) {
 
             const updateTime =
                 new Date(data.updated_at);
 
-            updatedElement.textContent =
-                "Updated " +
-                updateTime.toLocaleString();
+            if (!isNaN(updateTime.getTime())) {
+
+                const formattedTime =
+                    updateTime.toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: false
+                    });
+
+                updatedElement.textContent =
+                    "Last update: " + formattedTime;
+
+            } else {
+
+                updatedElement.textContent =
+                    "Last update: unavailable";
+
+            }
 
         } else {
 
             updatedElement.textContent =
-                "Update time unavailable";
+                "Last update: unavailable";
 
         }
 
+
     } catch (error) {
 
-        countElement.textContent = "Unavailable";
+        countElement.textContent = "--";
+
+        progressPercentage.textContent = "--";
 
         updatedElement.textContent =
-            "Unable to fetch member data";
+            "Last update: unavailable";
 
         console.error(error);
 
@@ -239,14 +336,17 @@ async function updateMemberCount() {
 }
 
 
-// Run immediately
+// INITIAL LOAD
 
 updateMemberCount();
 
 
-// Refresh every five minutes
+// REFRESH EVERY FIVE MINUTES
 
-setInterval(updateMemberCount, 5 * 60 * 1000);
+setInterval(
+    updateMemberCount,
+    5 * 60 * 1000
+);
 
 </script>
 
