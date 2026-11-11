@@ -1,31 +1,20 @@
-
 /* =====================================
    GD COMMUNITY SIDEBAR
    ===================================== */
-
-
-/* COLOUR SETTINGS */
 
 :root {
     --background: #180F26;
     --container: #211530;
     --mini: #2B1D3B;
-
     --border: #765A96;
     --mini-border: #987BB5;
-
     --lavender: #E8D9FA;
     --muted: #BCA9D1;
     --accent: #C5A5ED;
-
     --lime: #A6FF45;
     --lime-dark: #83D92D;
-
-    --admin-blue: #9BD5FF;
+    --admin-blue: #9BD9FF;
 }
-
-
-/* GENERAL PAGE */
 
 * {
     box-sizing: border-box;
@@ -39,36 +28,23 @@ html {
 body {
     margin: 0;
     padding: 0;
-
     width: 100%;
     min-height: 100vh;
-
     background: var(--background);
-
     font-family: 'Inter', sans-serif;
     color: var(--lavender);
 }
 
-
-/* MAIN CONTAINER */
-
 .sidebar {
     width: 100%;
     max-width: none;
-
     min-height: 100vh;
-
     margin: 0;
     padding: 13px;
-
     background: var(--background);
-
     border: none;
     border-radius: 0;
 }
-
-
-/* MAKE ALL MAIN SECTIONS STRETCH */
 
 .sidebar > * {
     width: 100%;
@@ -83,17 +59,12 @@ body {
 .club-header {
     display: flex;
     align-items: center;
-
     gap: 11px;
-
     width: 100%;
     padding: 7px 8px;
-
     border-radius: 12px;
-
     color: var(--lavender);
     text-decoration: none;
-
     transition: background 0.2s ease;
 }
 
@@ -104,9 +75,7 @@ body {
 .club-logo {
     width: 55px;
     height: 55px;
-
     flex-shrink: 0;
-
     object-fit: contain;
     border-radius: 11px;
 }
@@ -118,19 +87,15 @@ body {
 
 .club-title h1 {
     margin: 0;
-
     font-size: 15px;
     font-weight: 800;
-
     letter-spacing: 0.1px;
 }
 
 .club-title p {
     margin: 3px 0 0;
-
     font-size: 8px;
     letter-spacing: 0.8px;
-
     color: var(--muted);
 }
 
@@ -142,11 +107,8 @@ body {
 .separator {
     width: 100%;
     height: 1px;
-
     background: var(--border);
-
     margin: 13px 0;
-
     opacity: 0.8;
 }
 
@@ -157,23 +119,17 @@ body {
 
 .section {
     width: 100%;
-
     padding: 12px;
-
     background: var(--container);
-
     border: 1px solid var(--border);
     border-radius: 13px;
 }
 
 .section h2 {
     margin: 0 0 11px;
-
     font-size: 14px;
     font-weight: 900;
-
     letter-spacing: 2px;
-
     color: var(--accent);
     text-align: center;
 }
@@ -186,22 +142,15 @@ body {
 .nav-item {
     display: flex;
     align-items: center;
-
     gap: 10px;
-
     width: 100%;
-
     padding: 11px 9px;
     margin-bottom: 8px;
-
     background: var(--mini);
-
     border: 1px solid var(--mini-border);
     border-radius: 10px;
-
     color: var(--lavender);
     text-decoration: none;
-
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
@@ -215,12 +164,8 @@ body {
 .nav-item:hover {
     background: #3A2850;
     border-color: var(--accent);
-
     transform: translateY(-2px);
 }
-
-
-/* NAVIGATION ICONS */
 
 .nav-icon {
     font-size: 19px;
@@ -229,9 +174,7 @@ body {
 .nav-text {
     display: flex;
     flex-direction: column;
-
     flex: 1;
-
     gap: 4px;
 }
 
@@ -257,14 +200,10 @@ body {
 
 .member-progress {
     width: 100%;
-
     padding: 13px;
-
     background: var(--container);
-
     border: 1px solid var(--border);
     border-radius: 13px;
-
     transition:
         background 0.25s ease,
         border-color 0.25s ease,
@@ -273,25 +212,15 @@ body {
 
 .member-progress:hover {
     background: #281C37;
-
     border-color: var(--accent);
-
-    box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
-
-
-/* =====================================
-   PROGRESS HEADING
-   ===================================== */
 
 .progress-heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     width: 100%;
-
     gap: 6px;
     margin-bottom: 13px;
 }
@@ -299,165 +228,102 @@ body {
 .progress-heading > span:first-child {
     flex: 1;
     min-width: 0;
-
     white-space: nowrap;
-
     font-size: 9px;
     font-weight: 900;
-
     letter-spacing: 0.3px;
-
     color: var(--lavender);
 }
 
-
-/* PERCENTAGE BADGE */
-
 .progress-percentage {
     flex-shrink: 0;
-
     padding: 4px 9px;
-
     background: #29451F;
-
     border: 1px solid #496F32;
     border-radius: 7px;
-
     font-size: 20px;
     font-weight: 900;
-
     color: var(--lime);
     text-align: center;
-
     line-height: 1;
-
-    box-shadow:
-        inset 0 1px 3px rgba(166, 255, 69, 0.08);
+    box-shadow: inset 0 1px 3px rgba(166, 255, 69, 0.08);
 }
-
-
-/* =====================================
-   PROGRESS ROW
-   ===================================== */
 
 .progress-row {
     display: flex;
     align-items: center;
-
     gap: 9px;
-
     width: 100%;
 }
 
-
-/* CURRENT MEMBER COUNT */
-
 .member-count {
     min-width: 25px;
-
     font-size: 22px;
     font-weight: 900;
-
     color: var(--lavender);
     text-align: left;
-
     line-height: 1;
 }
-
-
-/* GOAL NUMBER */
 
 .member-goal {
     min-width: 25px;
-
     font-size: 20px;
     font-weight: 900;
-
     color: var(--lavender);
     text-align: right;
-
     line-height: 1;
 }
 
-
-/* PROGRESS BAR BACKGROUND */
-
 .progress-track {
     position: relative;
-
     flex: 1;
-
     height: 9px;
     min-width: 0;
-
     background: #392B47;
-
     border: 1px solid #59486A;
     border-radius: 999px;
-
     overflow: hidden;
 }
 
-
-/* GRADIENT LIME GREEN FILL */
-
 .progress-fill {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 0%;
     height: 100%;
-
     background: linear-gradient(
         90deg,
         #72D926 0%,
         #91EF36 45%,
         #B9FF69 100%
     );
-
     border-radius: 999px;
-
-    box-shadow:
-        0 0 8px rgba(166, 255, 69, 0.45);
-
-    transition:
-        width 1s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: 0 0 8px rgba(166, 255, 69, 0.45);
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-
-/* =====================================
-   UPDATE FOOTER
-   ===================================== */
 
 .progress-footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 5px;
-
     margin-top: 13px;
     padding-top: 9px;
-
     border-top: 1px solid rgba(118, 90, 150, 0.55);
 }
 
-.update-frequency {
+.update-frequency,
+.member-updated {
     font-size: 8px;
-
-    color: var(--muted);
-
     white-space: nowrap;
 }
 
+.update-frequency {
+    color: var(--muted);
+}
+
 .member-updated {
-    font-size: 8px;
-
     color: var(--accent);
-
-    white-space: nowrap;
     text-align: right;
 }
 
@@ -467,87 +333,101 @@ body {
    ===================================== */
 
 .admins-section {
-    width: 100%;
-
     padding: 13px;
-
-    background: var(--container);
-
-    border: 1px solid var(--border);
-    border-radius: 13px;
 }
 
-
-/* ADMINS MAIN HEADING */
-
-.admins-section > h2 {
-    margin: 0 0 13px;
-
-    font-size: 17px;
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    color: var(--accent);
-    text-align: center;
+.admins-section h2 {
+    margin-bottom: 13px;
+    font-size: 16px;
 }
-
-
-/* OWNER / ADMIN GROUPS */
 
 .admin-group {
-    display: flex;
-    flex-direction: column;
-
     width: 100%;
-
-    gap: 6px;
 }
 
 
-/* OWNER AND ADMINS LABELS */
+/* OWNER / ADMIN ROLE LABELS */
 
 .admin-role {
-    width: 100%;
-
-    font-size: 11px;
+    margin: 0 0 7px 2px;
+    font-size: 17px;
     font-weight: 900;
-
-    letter-spacing: 1.3px;
-
-    text-align: left;
+    letter-spacing: 2px;
+    line-height: 1.2;
 }
 
 .owner-role {
-    color: var(--lavender);
+    color: var(--lime);
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 12px;
 }
 
 .admins-role {
     color: var(--admin-blue);
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 12px;
 }
 
 
-/* DOTTED PROFILE CARDS */
+/* OWNER PROFILE PICTURE + USERNAME */
+
+.owner-profile-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.owner-avatar-link {
+    display: block;
+    flex-shrink: 0;
+    line-height: 0;
+}
+
+.owner-avatar {
+    width: 76px !important;
+    height: 76px !important;
+    min-width: 76px;
+    object-fit: cover;
+    border-radius: 4px !important;
+    border: 2px solid var(--lime) !important;
+    display: block;
+    box-shadow: 0 0 12px rgba(166, 255, 69, 0.2);
+}
+
+.owner-profile-name {
+    color: #FFFFFF;
+    font-size: 17px;
+    font-weight: 900;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    text-align: left;
+    transition: color 0.2s ease;
+}
+
+.owner-profile-name:hover {
+    color: var(--lime);
+}
+
+
+/* ADMIN PROFILE CARDS */
 
 .admin-card {
     display: flex;
     align-items: center;
-
     gap: 11px;
-
     width: 100%;
-    min-height: 43px;
-
-    padding: 6px 9px;
-
+    min-height: 54px;
+    padding: 7px 10px;
     background: var(--mini);
-
     border: 1px dashed var(--mini-border);
-    border-radius: 12px;
-
-    color: var(--lavender);
+    border-radius: 11px;
+    color: #FFFFFF;
     text-decoration: none;
-
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
@@ -555,210 +435,155 @@ body {
         box-shadow 0.2s ease;
 }
 
-
-/* PROFILE CARD HOVER */
-
 .admin-card:hover {
     background: #38264B;
-
     border-color: var(--accent);
-
     transform: translateY(-1px);
-
-    box-shadow:
-        0 3px 9px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
 }
 
 
-/* PROFILE PICTURES */
+/* ADMIN PROFILE PICTURES */
 
 .admin-avatar {
     display: block;
-
-    width: 31px;
-    height: 31px;
-
-    flex-shrink: 0;
-
-    object-fit: cover;
-
-    border-radius: 9px;
-
-    background: #392B47;
-
-    border: 1px solid var(--mini-border);
-}
-
-
-/* OWNER PROFILE PICTURE */
-
-.owner-card .admin-avatar {
+    flex: 0 0 38px;
     width: 38px;
     height: 38px;
-
-    border-radius: 11px;
-
-    border-color: var(--accent);
+    object-fit: cover;
+    border-radius: 50%;
+    background: #443354;
+    border: 1px solid rgba(232, 217, 250, 0.35);
 }
 
 
-/* USERNAMES */
+/* ADMIN USERNAMES */
 
 .admin-name {
-    display: block;
-
     min-width: 0;
-
+    overflow-wrap: anywhere;
+    color: #FFFFFF;
     font-size: 11px;
     font-weight: 800;
+    letter-spacing: 0.2px;
+}
 
-    letter-spacing: 0.3px;
 
-    color: var(--admin-blue);
+/* OWNER DOTTED USERNAME BOX */
 
+.owner-card {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.owner-name {
+    color: var(--lime);
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    width: 100%;
     overflow-wrap: anywhere;
 }
 
 
-/* OWNER USERNAME */
-
-.owner-name {
-    font-size: 16px;
-    font-weight: 900;
-
-    letter-spacing: 0.5px;
-
-    color: #FFFFFF;
-}
-
-
-/* OWNER / ADMIN SEPARATOR */
+/* SEPARATOR BETWEEN OWNER AND ADMINS */
 
 .admin-divider {
     width: 100%;
     height: 1px;
-
-    margin: 13px 0;
-
-    background: rgba(118, 90, 150, 0.65);
+    margin: 13px 0 11px;
+    background: rgba(118, 90, 150, 0.75);
 }
 
 
-/* ADMIN PROFILE LIST */
+/* ADMIN LIST */
 
 .admin-list {
     display: flex;
     flex-direction: column;
-
     gap: 7px;
+}
 
-    width: 100%;
+.admin-list .admin-card {
+    min-height: 48px;
+}
+
+.admin-list .admin-avatar {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
 }
 
 
 /* =====================================
-   CREO MUSIC COLLECTION
+   MUSIC COLLECTION
    ===================================== */
-
-
-/* DOTTED-LINE CONTAINER */
 
 .placeholder {
     width: 100%;
-
     padding: 13px 9px;
-
     background: var(--mini);
-
     border: 1px dashed var(--mini-border);
     border-radius: 10px;
 }
 
 
-/* =====================================
-   YOUTUBE PLAYER
-   ===================================== */
+/* YOUTUBE PLAYER */
 
 .creo-player-wrapper {
     position: relative;
-
     width: 100%;
     aspect-ratio: 16 / 9;
-
     margin-bottom: 12px;
-
     background: #100B18;
-
     border: 1px solid var(--mini-border);
     border-radius: 11px;
-
     overflow: hidden;
-
-    box-shadow:
-        0 3px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
-
-
-/* PLAYER ELEMENT */
 
 #creo-player {
     position: absolute;
-
     top: 0;
     left: 0;
-
     width: 100%;
     height: 100%;
 }
 
-
-/* YOUTUBE IFRAME */
-
 .creo-player-wrapper iframe {
     display: block;
-
     width: 100% !important;
     height: 100% !important;
-
     border: 0;
     border-radius: 11px;
 }
 
 
-/* =====================================
-   SONG LIST
-   ===================================== */
+/* SONG LIST */
 
 .creo-song-list {
     display: flex;
     flex-direction: column;
-
     gap: 7px;
-
     width: 100%;
 }
-
-
-/* INDIVIDUAL SONG DIV */
 
 .creo-song {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 8px;
-
     width: 100%;
-
-    min-height: 38px;
-
+    min-height: 39px;
     padding: 5px 10px;
-
     background: #211530;
-
     border: 1px solid var(--mini-border);
-    border-radius: 16px;
-
+    border-radius: 15px;
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
@@ -766,66 +591,42 @@ body {
         box-shadow 0.2s ease;
 }
 
-
-/* SONG DIV HOVER */
-
 .creo-song:hover {
     background: #38264B;
-
     border-color: var(--accent);
-
     transform: translateY(-1px);
-
-    box-shadow:
-        0 3px 9px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
 }
-
-
-/* SONG NAME */
 
 .creo-song-name {
     flex: 1;
     min-width: 0;
-
     font-size: 12px;
     font-weight: 900;
-
     letter-spacing: 0.2px;
-
     color: var(--lavender);
     text-align: left;
 }
 
 
-/* =====================================
-   PLAY BUTTON
-   ===================================== */
+/* PLAY BUTTONS */
 
 .creo-play-button {
     display: flex;
     align-items: center;
     justify-content: center;
-
     flex-shrink: 0;
-
     width: 28px;
     height: 28px;
-
     padding: 0;
-
     background: #392B47;
-
     border: 1px solid #987BB5;
-    border-radius: 10px;
-
+    border-radius: 9px;
     color: var(--lavender);
-
     font-family: inherit;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 900;
-
     cursor: pointer;
-
     transition:
         background 0.2s ease,
         border-color 0.2s ease,
@@ -834,41 +635,23 @@ body {
         box-shadow 0.2s ease;
 }
 
-
-/* BUTTON HOVER */
-
 .creo-play-button:hover {
     background: #4A3560;
-
     border-color: var(--accent);
-
     transform: scale(1.07);
 }
 
-
-/* SELECTED SONG BUTTON */
-
 .creo-play-button.active {
     background: #29451F;
-
     border-color: #83D92D;
-
     color: var(--lime);
-
-    box-shadow:
-        0 0 8px rgba(166, 255, 69, 0.18);
+    box-shadow: 0 0 8px rgba(166, 255, 69, 0.18);
 }
-
-
-/* SELECTED BUTTON HOVER */
 
 .creo-play-button.active:hover {
     background: #355A27;
     border-color: var(--lime);
 }
-
-
-/* BUTTON FOCUS */
 
 .creo-play-button:focus-visible {
     outline: 2px solid var(--lime);
@@ -882,15 +665,10 @@ body {
 
 .footer {
     width: 100%;
-
     margin-top: 13px;
-
     text-align: center;
-
     font-size: 9px;
     font-weight: 600;
-
     letter-spacing: 2px;
-
     color: var(--muted);
 }
