@@ -40,7 +40,7 @@ body {
 
     background: transparent;
 
-    font-family: Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 
     color: var(--lavender);
 
@@ -108,28 +108,42 @@ body {
 }
 
 
+.club-title {
+
+    flex: 1;
+    min-width: 0;
+
+    text-align: center;
+
+}
+
+
 .club-title h1 {
 
     margin: 0;
 
     font-size: 19px;
 
-    font-weight: bold;
+    font-weight: 800;
 
-    letter-spacing: 0.3px;
+    letter-spacing: 0.1px;
 
 }
 
 
 .club-title p {
 
-    margin: 5px 0 0;
+    margin: 6px 0 0;
 
-    font-size: 9px;
+    font-size: 13px;
 
-    letter-spacing: 1px;
+    font-weight: 800;
 
-    color: var(--muted);
+    letter-spacing: 2.5px;
+
+    color: var(--accent);
+
+    text-align: center;
 
 }
 
@@ -173,6 +187,8 @@ body {
     margin: 0 0 11px;
 
     font-size: 11px;
+
+    font-weight: 800;
 
     letter-spacing: 1.5px;
 
@@ -258,6 +274,8 @@ body {
 
     font-size: 12px;
 
+    font-weight: 700;
+
 }
 
 
@@ -331,24 +349,28 @@ body {
 
     width: 100%;
 
-    gap: 8px;
+    gap: 6px;
 
     margin-bottom: 13px;
 
 }
 
 
-/* TITLE */
+/* SMALLER SINGLE-LINE TITLE */
 
 .progress-heading > span:first-child {
 
     flex: 1;
 
-    font-size: 15px;
+    min-width: 0;
+
+    white-space: nowrap;
+
+    font-size: 11px;
 
     font-weight: 900;
 
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
 
     color: var(--lavender);
 
@@ -577,7 +599,7 @@ body {
 
     font-size: 13px;
 
-    font-weight: bold;
+    font-weight: 700;
 
 }
 
@@ -602,6 +624,8 @@ body {
     text-align: center;
 
     font-size: 9px;
+
+    font-weight: 600;
 
     letter-spacing: 2px;
 
