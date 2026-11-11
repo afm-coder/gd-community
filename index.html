@@ -191,17 +191,13 @@
     <div class="separator"></div>
 
 
-    <!-- CREO MUSIC LIBRARY -->
+    <!-- CREO MUSIC COLLECTION -->
 
     <div class="section">
 
         <h2>MUSIC COLLECTION</h2>
 
         <div class="placeholder">
-
-            <h3 class="creo-title">
-                CREO LIBRARY
-            </h3>
 
 
             <!-- YOUTUBE PLAYER -->
@@ -223,14 +219,14 @@
                 <div class="creo-song">
 
                     <span class="creo-song-name">
-                        CREO — FLOW
+                        FLOW
                     </span>
 
                     <button
                         type="button"
                         class="creo-play-button active"
                         data-song="flow"
-                        aria-label="Play Creo Flow"
+                        aria-label="Play Flow"
                         aria-pressed="true"
                         onclick="chooseCreoSong('flow')"
                     >
@@ -245,14 +241,14 @@
                 <div class="creo-song">
 
                     <span class="creo-song-name">
-                        CREO — SPHERE
+                        SPHERE
                     </span>
 
                     <button
                         type="button"
                         class="creo-play-button"
                         data-song="sphere"
-                        aria-label="Play Creo Sphere"
+                        aria-label="Play Sphere"
                         aria-pressed="false"
                         onclick="chooseCreoSong('sphere')"
                     >
@@ -267,16 +263,104 @@
                 <div class="creo-song">
 
                     <span class="creo-song-name">
-                        CREO — EPILOGUE
+                        EPILOGUE
                     </span>
 
                     <button
                         type="button"
                         class="creo-play-button"
                         data-song="epilogue"
-                        aria-label="Play Creo Epilogue"
+                        aria-label="Play Epilogue"
                         aria-pressed="false"
                         onclick="chooseCreoSong('epilogue')"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+                <!-- NAUTILUS -->
+
+                <div class="creo-song">
+
+                    <span class="creo-song-name">
+                        NAUTILUS
+                    </span>
+
+                    <button
+                        type="button"
+                        class="creo-play-button"
+                        data-song="nautilus"
+                        aria-label="Play Nautilus"
+                        aria-pressed="false"
+                        onclick="chooseCreoSong('nautilus')"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+                <!-- DIMENSION -->
+
+                <div class="creo-song">
+
+                    <span class="creo-song-name">
+                        DIMENSION
+                    </span>
+
+                    <button
+                        type="button"
+                        class="creo-play-button"
+                        data-song="dimension"
+                        aria-label="Play Dimension"
+                        aria-pressed="false"
+                        onclick="chooseCreoSong('dimension')"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+                <!-- CARNIVORES -->
+
+                <div class="creo-song">
+
+                    <span class="creo-song-name">
+                        CARNIVORES
+                    </span>
+
+                    <button
+                        type="button"
+                        class="creo-play-button"
+                        data-song="carnivores"
+                        aria-label="Play Carnivores"
+                        aria-pressed="false"
+                        onclick="chooseCreoSong('carnivores')"
+                    >
+                        ▶
+                    </button>
+
+                </div>
+
+
+                <!-- ATMOSPHERE -->
+
+                <div class="creo-song">
+
+                    <span class="creo-song-name">
+                        ATMOSPHERE
+                    </span>
+
+                    <button
+                        type="button"
+                        class="creo-play-button"
+                        data-song="atmosphere"
+                        aria-label="Play Atmosphere"
+                        aria-pressed="false"
+                        onclick="chooseCreoSong('atmosphere')"
                     >
                         ▶
                     </button>
@@ -455,7 +539,15 @@ const creoSongs = {
 
     sphere: "0ZUoFPLlVQU",
 
-    epilogue: "tOZNh8veU_Y"
+    epilogue: "tOZNh8veU_Y",
+
+    nautilus: "6xEKE8jXyBs",
+
+    dimension: "MrD05HVGVIQ",
+
+    carnivores: "qZSSJk6OHdA",
+
+    atmosphere: "R7t4WQn7LQQ"
 
 };
 
@@ -581,15 +673,11 @@ function onYouTubeIframeAPIReady() {
 
                 onReady: function () {
 
-                    // ENSURE THE DEFAULT SONG IS LOADED
+                    // LOAD THE MOST RECENTLY SELECTED SONG
 
-                    if (currentCreoSong !== "flow") {
-
-                        creoPlayer.cueVideoById(
-                            creoSongs[currentCreoSong]
-                        );
-
-                    }
+                    creoPlayer.cueVideoById(
+                        creoSongs[currentCreoSong]
+                    );
 
                 }
 
