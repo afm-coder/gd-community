@@ -19,6 +19,11 @@
     --muted: #BCA9D1;
     --accent: #C5A5ED;
 
+    /* LIME GREEN */
+
+    --lime: #A6FF45;
+    --lime-dark: #83D92D;
+
 }
 
 
@@ -275,15 +280,12 @@ body {
 
 
 /* =====================================
-   MEMBER COUNTER
+   MEMBER PROGRESS CARD
    ===================================== */
 
-.member-counter {
+.member-progress {
 
-    display: flex;
-    align-items: center;
-
-    gap: 11px;
+    width: 100%;
 
     padding: 13px;
 
@@ -291,97 +293,252 @@ body {
 
     border: 1px solid var(--border);
 
-    border-radius: 12px;
+    border-radius: 13px;
+
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 
 }
 
 
-/* MEMBER ICON */
+/* MATCH THE OTHER MINI-DIV HOVER EFFECTS */
 
-.member-icon {
+.member-progress:hover {
 
-    font-size: 24px;
+    background: #281C37;
+
+    border-color: var(--accent);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.18);
 
 }
 
 
-/* MEMBER INFORMATION */
+/* =====================================
+   PROGRESS HEADING
+   ===================================== */
 
-.member-info {
+.progress-heading {
 
     display: flex;
 
-    flex-direction: column;
+    align-items: center;
 
-    flex: 1;
+    justify-content: space-between;
 
-    gap: 4px;
+    width: 100%;
+
+    gap: 8px;
+
+    margin-bottom: 13px;
 
 }
 
 
-.member-info strong {
+/* TITLE */
 
-    font-size: 18px;
+.progress-heading > span:first-child {
+
+    flex: 1;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
 
     color: var(--lavender);
 
 }
 
 
-.member-info small {
+/* PERCENTAGE BADGE */
 
-    font-size: 9px;
+.progress-percentage {
 
-    letter-spacing: 1px;
+    flex-shrink: 0;
 
-    color: var(--muted);
+    padding: 4px 9px;
+
+    background: #29451F;
+
+    border: 1px solid #496F32;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    color: var(--lime);
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 1px 3px rgba(166, 255, 69, 0.08);
 
 }
 
 
-/* UPDATE TIMESTAMP */
+/* =====================================
+   PROGRESS ROW
+   ===================================== */
 
-#member-updated {
-
-    font-size: 8px;
-
-    letter-spacing: 0;
-
-    opacity: 0.75;
-
-}
-
-
-/* LIVE INDICATOR */
-
-.live-indicator {
+.progress-row {
 
     display: flex;
 
     align-items: center;
 
-    gap: 5px;
+    gap: 9px;
 
-    font-size: 9px;
-
-    font-weight: bold;
-
-    color: var(--muted);
+    width: 100%;
 
 }
 
 
-.live-indicator span {
+/* CURRENT MEMBER COUNT */
 
-    width: 7px;
-    height: 7px;
+.member-count {
 
-    border-radius: 50%;
+    min-width: 25px;
 
-    background: #9BDBA8;
+    font-size: 20px;
 
-    box-shadow: 0 0 7px #9BDBA8;
+    font-weight: 900;
+
+    color: var(--lavender);
+
+    text-align: left;
+
+    line-height: 1;
+
+}
+
+
+/* GOAL NUMBER */
+
+.member-goal {
+
+    min-width: 25px;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    color: var(--lavender);
+
+    text-align: right;
+
+    line-height: 1;
+
+}
+
+
+/* PROGRESS BAR BACKGROUND */
+
+.progress-track {
+
+    position: relative;
+
+    flex: 1;
+
+    height: 9px;
+
+    min-width: 0;
+
+    background: #392B47;
+
+    border: 1px solid #59486A;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+
+}
+
+
+/* GRADIENT LIME GREEN FILL */
+
+.progress-fill {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0%;
+
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        #72D926 0%,
+        #91EF36 45%,
+        #B9FF69 100%
+    );
+
+    border-radius: 999px;
+
+    box-shadow:
+        0 0 8px rgba(166, 255, 69, 0.45);
+
+    transition:
+        width 1s cubic-bezier(0.22, 1, 0.36, 1);
+
+}
+
+
+/* =====================================
+   UPDATE FOOTER
+   ===================================== */
+
+.progress-footer {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 5px;
+
+    margin-top: 13px;
+
+    padding-top: 9px;
+
+    border-top: 1px solid rgba(118, 90, 150, 0.55);
+
+}
+
+
+/* UPDATE FREQUENCY */
+
+.update-frequency {
+
+    font-size: 8px;
+
+    color: var(--muted);
+
+    white-space: nowrap;
+
+}
+
+
+/* LAST UPDATE */
+
+.member-updated {
+
+    font-size: 8px;
+
+    color: var(--accent);
+
+    white-space: nowrap;
+
+    text-align: right;
 
 }
 
