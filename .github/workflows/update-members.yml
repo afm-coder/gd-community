@@ -2,10 +2,9 @@
 name: Update GD Community Member Count
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"
-
   workflow_dispatch:
+  schedule:
+    - cron: "17,47 * * * *"
 
 permissions:
   contents: write
@@ -33,4 +32,3 @@ jobs:
           git add members.json
           git diff --cached --quiet || git commit -m "Update club member count"
           git push
-
