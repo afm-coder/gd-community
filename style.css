@@ -20,6 +20,8 @@
 
     --lime: #A6FF45;
     --lime-dark: #83D92D;
+
+    --admin-blue: #9BD5FF;
 }
 
 
@@ -294,29 +296,18 @@ body {
     margin-bottom: 13px;
 }
 
-
-/* SMALLER MEMBER COUNT TITLE */
-
 .progress-heading > span:first-child {
     flex: 1;
     min-width: 0;
 
     white-space: nowrap;
 
-    font-size: 0;
+    font-size: 9px;
     font-weight: 900;
 
     letter-spacing: 0.3px;
 
     color: var(--lavender);
-}
-
-/* REPLACE OLD HEADING TEXT */
-
-.progress-heading > span:first-child::before {
-    content: "MEMBER COUNT";
-
-    font-size: 9px;
 }
 
 
@@ -332,11 +323,13 @@ body {
     border: 1px solid #496F32;
     border-radius: 7px;
 
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 900;
 
     color: var(--lime);
     text-align: center;
+
+    line-height: 1;
 
     box-shadow:
         inset 0 1px 3px rgba(166, 255, 69, 0.08);
@@ -362,7 +355,7 @@ body {
 .member-count {
     min-width: 25px;
 
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 900;
 
     color: var(--lavender);
@@ -470,8 +463,205 @@ body {
 
 
 /* =====================================
+   ADMINS SECTION
+   ===================================== */
+
+.admins-section {
+    width: 100%;
+
+    padding: 13px;
+
+    background: var(--container);
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+}
+
+
+/* ADMINS MAIN HEADING */
+
+.admins-section > h2 {
+    margin: 0 0 13px;
+
+    font-size: 17px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    color: var(--accent);
+    text-align: center;
+}
+
+
+/* OWNER / ADMIN GROUPS */
+
+.admin-group {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 6px;
+}
+
+
+/* OWNER AND ADMINS LABELS */
+
+.admin-role {
+    width: 100%;
+
+    font-size: 11px;
+    font-weight: 900;
+
+    letter-spacing: 1.3px;
+
+    text-align: left;
+}
+
+.owner-role {
+    color: var(--lavender);
+}
+
+.admins-role {
+    color: var(--admin-blue);
+}
+
+
+/* DOTTED PROFILE CARDS */
+
+.admin-card {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    width: 100%;
+    min-height: 43px;
+
+    padding: 6px 9px;
+
+    background: var(--mini);
+
+    border: 1px dashed var(--mini-border);
+    border-radius: 12px;
+
+    color: var(--lavender);
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* PROFILE CARD HOVER */
+
+.admin-card:hover {
+    background: #38264B;
+
+    border-color: var(--accent);
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 3px 9px rgba(0, 0, 0, 0.2);
+}
+
+
+/* PROFILE PICTURES */
+
+.admin-avatar {
+    display: block;
+
+    width: 31px;
+    height: 31px;
+
+    flex-shrink: 0;
+
+    object-fit: cover;
+
+    border-radius: 9px;
+
+    background: #392B47;
+
+    border: 1px solid var(--mini-border);
+}
+
+
+/* OWNER PROFILE PICTURE */
+
+.owner-card .admin-avatar {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 11px;
+
+    border-color: var(--accent);
+}
+
+
+/* USERNAMES */
+
+.admin-name {
+    display: block;
+
+    min-width: 0;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.3px;
+
+    color: var(--admin-blue);
+
+    overflow-wrap: anywhere;
+}
+
+
+/* OWNER USERNAME */
+
+.owner-name {
+    font-size: 16px;
+    font-weight: 900;
+
+    letter-spacing: 0.5px;
+
+    color: #FFFFFF;
+}
+
+
+/* OWNER / ADMIN SEPARATOR */
+
+.admin-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 13px 0;
+
+    background: rgba(118, 90, 150, 0.65);
+}
+
+
+/* ADMIN PROFILE LIST */
+
+.admin-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    width: 100%;
+}
+
+
+/* =====================================
    CREO MUSIC COLLECTION
    ===================================== */
+
+
+/* DOTTED-LINE CONTAINER */
 
 .placeholder {
     width: 100%;
@@ -543,7 +733,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    gap: 8px;
+    gap: 7px;
 
     width: 100%;
 }
@@ -559,14 +749,15 @@ body {
     gap: 8px;
 
     width: 100%;
-    min-height: 48px;
 
-    padding: 8px 9px;
+    min-height: 38px;
+
+    padding: 5px 10px;
 
     background: #211530;
 
     border: 1px solid var(--mini-border);
-    border-radius: 9px;
+    border-radius: 16px;
 
     transition:
         background 0.2s ease,
@@ -617,15 +808,15 @@ body {
 
     flex-shrink: 0;
 
-    width: 31px;
-    height: 31px;
+    width: 28px;
+    height: 28px;
 
     padding: 0;
 
     background: #392B47;
 
     border: 1px solid #987BB5;
-    border-radius: 8px;
+    border-radius: 10px;
 
     color: var(--lavender);
 
