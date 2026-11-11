@@ -113,8 +113,6 @@ body {
     flex: 1;
     min-width: 0;
 
-    text-align: center;
-
 }
 
 
@@ -133,17 +131,13 @@ body {
 
 .club-title p {
 
-    margin: 6px 0 0;
+    margin: 5px 0 0;
 
-    font-size: 13px;
+    font-size: 9px;
 
-    font-weight: 800;
+    letter-spacing: 1px;
 
-    letter-spacing: 2.5px;
-
-    color: var(--accent);
-
-    text-align: center;
+    color: var(--muted);
 
 }
 
@@ -186,13 +180,15 @@ body {
 
     margin: 0 0 11px;
 
-    font-size: 11px;
+    font-size: 14px;
 
-    font-weight: 800;
+    font-weight: 900;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
 
     color: var(--accent);
+
+    text-align: center;
 
 }
 
