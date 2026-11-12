@@ -42,9 +42,7 @@
 
     </a>
 
-
     <div class="separator"></div>
-
 
     <!-- COMMUNITY NAVIGATION -->
     <div class="section">
@@ -66,7 +64,6 @@
             <span class="arrow">↗</span>
         </a>
 
-
         <a class="nav-item"
            href="https://www.chess.com/clubs/forum/view/promotions-100"
            target="_blank"
@@ -82,7 +79,6 @@
             <span class="arrow">↗</span>
         </a>
 
-
         <a class="nav-item"
            href="https://www.chess.com/clubs/forum/view/suggestions-10747"
            target="_blank"
@@ -97,7 +93,6 @@
 
             <span class="arrow">↗</span>
         </a>
-
 
         <a class="nav-item"
            href="https://www.chess.com/clubs/forum/view/completions"
@@ -116,9 +111,7 @@
 
     </div>
 
-
     <div class="separator"></div>
-
 
     <!-- MEMBER PROGRESS -->
     <div class="member-progress">
@@ -131,7 +124,6 @@
                 class="progress-percentage"
             >0%</span>
         </div>
-
 
         <div class="progress-row">
 
@@ -151,7 +143,6 @@
 
         </div>
 
-
         <div class="progress-footer">
 
             <span class="update-frequency">
@@ -167,9 +158,7 @@
 
     </div>
 
-
     <div class="separator"></div>
-
 
     <!-- ADMINS SECTION -->
     <div class="section admins-section">
@@ -212,9 +201,7 @@
 
         </div>
 
-
         <div class="admin-divider"></div>
-
 
         <!-- ADMINS -->
         <div class="admin-group">
@@ -241,7 +228,6 @@
                     <span class="admin-name">TTRS-PRO</span>
                 </a>
 
-
                 <a
                     class="admin-card"
                     href="https://www.chess.com/member/negnet"
@@ -258,7 +244,6 @@
                     <span class="admin-name">negneT</span>
                 </a>
 
-
                 <a
                     class="admin-card"
                     href="https://www.chess.com/member/wpopoffishere-account2"
@@ -274,7 +259,6 @@
 
                     <span class="admin-name">wpopoffishere</span>
                 </a>
-
 
                 <a
                     class="admin-card"
@@ -298,9 +282,7 @@
 
     </div>
 
-
     <div class="separator"></div>
-
 
     <!-- CREO MUSIC COLLECTION -->
     <div class="section">
@@ -405,7 +387,6 @@
 
     </div>
 
-
     <!-- FOOTER AND INVITE BUTTON -->
     <div class="footer">
 
@@ -417,6 +398,27 @@
         >
             COPY INVITE
         </button>
+
+        <div
+            id="copy-invite-fallback"
+            hidden
+            style="width:100%; margin-top:8px; text-align:center;"
+        >
+            <div style="font-size:8px; line-height:1.5; color:var(--muted); margin-bottom:5px;">
+                Clipboard access is blocked. Select the link below and copy it:
+            </div>
+
+            <input
+                id="copy-invite-fallback-input"
+                type="text"
+                value="https://www.chess.com/club/gd-community/join"
+                readonly
+                aria-label="Club invite link"
+                onclick="this.select()"
+                onfocus="this.select()"
+                style="box-sizing:border-box; width:100%; padding:7px 6px; border:1px solid var(--mini-border); border-radius:8px; background:var(--mini); color:var(--lavender); font:600 9px Inter,sans-serif; text-align:center; outline:none;"
+            >
+        </div>
 
         <a
             class="footer-link"
@@ -512,7 +514,6 @@ async function updateMemberCount() {
     const progressPercentage =
         document.getElementById("progress-percentage");
 
-
     try {
 
         const response = await fetch(
@@ -550,7 +551,6 @@ async function updateMemberCount() {
 
         progressPercentage.textContent =
             Math.round(percentage) + "%";
-
 
         if (data.updated_at) {
 
@@ -621,49 +621,90 @@ async function copyInviteLink() {
     const button =
         document.getElementById("copy-invite-button");
 
+    const fallback =
+        document.getElementById("copy-invite-fallback");
+
+    const fallbackInput =
+        document.getElementById("copy-invite-fallback-input");
+
     const originalText = "COPY INVITE";
 
+    if (!button || !fallback || !fallbackInput) {
+        console.error("The invite button or fallback field could not be found.");
+        return;
+    }
+
+    fallback.hidden = true;
+    fallbackInput.value = INVITE_LINK;
+
+    button.textContent = "COPYING...";
+    button.classList.remove("copied", "copy-failed");
+
+    let copied = false;
+
+    // Try the modern Clipboard API first.
     try {
 
-        // Modern clipboard method
-        if (
-            navigator.clipboard &&
-            window.isSecureContext
-        ) {
-
+        if (navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(INVITE_LINK);
+            copied = true;
+        }
 
-        } else {
+    } catch (error) {
 
-            // Fallback for embedded browsers
-            const temporaryInput =
-                document.createElement("textarea");
+        console.warn(
+            "Clipboard API was blocked; trying the fallback.",
+            error
+        );
+
+    }
+
+    // Try the older copy method.
+    if (!copied) {
+
+        let temporaryInput;
+
+        try {
+
+            temporaryInput = document.createElement("textarea");
 
             temporaryInput.value = INVITE_LINK;
             temporaryInput.setAttribute("readonly", "");
             temporaryInput.style.position = "fixed";
-            temporaryInput.style.opacity = "0";
+            temporaryInput.style.top = "0";
             temporaryInput.style.left = "-9999px";
+            temporaryInput.style.opacity = "0";
 
             document.body.appendChild(temporaryInput);
 
             temporaryInput.focus();
             temporaryInput.select();
+
             temporaryInput.setSelectionRange(
                 0,
-                temporaryInput.value.length
+                INVITE_LINK.length
             );
 
-            const successful =
-                document.execCommand("copy");
+            copied = document.execCommand("copy");
 
-            document.body.removeChild(temporaryInput);
+        } catch (error) {
 
-            if (!successful) {
-                throw new Error("Clipboard copy failed");
+            console.warn(
+                "The browser blocked the legacy copy method.",
+                error
+            );
+
+        } finally {
+
+            if (temporaryInput && temporaryInput.parentNode) {
+                temporaryInput.parentNode.removeChild(temporaryInput);
             }
 
         }
+
+    }
+
+    if (copied) {
 
         button.textContent = "COPIED!";
         button.classList.add("copied");
@@ -675,21 +716,28 @@ async function copyInviteLink() {
             button.classList.remove("copied");
         }, 2000);
 
-    } catch (error) {
-
-        console.error("Could not copy invite link:", error);
-
-        button.textContent = "COPY FAILED";
-        button.classList.add("copy-failed");
-
-        clearTimeout(button.copyResetTimer);
-
-        button.copyResetTimer = setTimeout(() => {
-            button.textContent = originalText;
-            button.classList.remove("copy-failed");
-        }, 2500);
+        return;
 
     }
+
+    // Manual-copy fallback if Chess.com blocks clipboard access.
+    button.textContent = "SELECT LINK BELOW";
+
+    fallback.hidden = false;
+
+    fallbackInput.focus();
+    fallbackInput.select();
+
+    fallbackInput.setSelectionRange(
+        0,
+        fallbackInput.value.length
+    );
+
+    clearTimeout(button.copyResetTimer);
+
+    button.copyResetTimer = setTimeout(() => {
+        button.textContent = originalText;
+    }, 4000);
 
 }
 
