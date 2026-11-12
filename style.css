@@ -23,14 +23,18 @@
 
 html {
     width: 100%;
-    min-height: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
 }
 
 body {
     margin: 0;
     padding: 0;
     width: 100%;
-    min-height: 100vh;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
     background: var(--background);
     font-family: 'Inter', sans-serif;
     color: var(--lavender);
@@ -39,9 +43,11 @@ body {
 .sidebar {
     width: 100%;
     max-width: none;
-    min-height: 100vh;
+    height: auto;
+    min-height: 0;
     margin: 0;
     padding: 13px;
+    overflow: visible;
     background: var(--background);
     border: none;
     border-radius: 0;
@@ -238,11 +244,11 @@ body {
 
 .progress-percentage {
     flex-shrink: 0;
-    padding: 4px 9px;
+    padding: 3px 6px;
     background: #29451F;
     border: 1px solid #496F32;
     border-radius: 7px;
-    font-size: 9px;
+    font-size: 8px !important;
     font-weight: 900;
     color: var(--lime);
     text-align: center;
