@@ -1,4 +1,3 @@
-
 /* =====================================
    GD COMMUNITY SIDEBAR
 ===================================== */
@@ -646,142 +645,162 @@ body {
    FOOTER
 ===================================== */
 
-.footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    margin-top: 15px;
-    padding: 5px 0 3px;
+/* More breathing room after the final mini-div */
+.sidebar .footer {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    width: 100% !important;
+    margin: 27px 0 0 !important;
+    padding: 8px 0 7px !important;
 }
 
 
 /* COPY INVITE BUTTON */
 
-.copy-invite-button {
+.sidebar .footer button.copy-invite-button {
     position: relative;
-    display: block;
-    width: 100%;
-    min-height: 43px;
-    padding: 11px 16px;
+    display: block !important;
+    width: 100% !important;
+    min-height: 43px !important;
+    padding: 11px 16px !important;
 
     background: linear-gradient(
         110deg,
         #7650A5 0%,
         #A06BD0 45%,
         #7650A5 100%
-    );
+    ) !important;
 
-    background-size: 200% 200%;
+    background-size: 200% 200% !important;
 
-    border: 1px solid #C5A5ED;
-    border-radius: 13px;
+    border: 1px solid #C5A5ED !important;
+    border-radius: 13px !important;
 
-    color: #FFFFFF;
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 2px;
+    color: #FFFFFF !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    letter-spacing: 2px !important;
 
-    text-align: center;
-    cursor: pointer;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
 
     box-shadow:
         0 3px 10px rgba(0, 0, 0, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+        inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
 
     transition:
         background-position 0.4s ease,
         transform 0.25s ease,
         border-color 0.25s ease,
         box-shadow 0.25s ease,
-        filter 0.25s ease;
+        filter 0.25s ease !important;
 }
 
-.copy-invite-button:hover {
-    background-position: 100% 50%;
-    border-color: #E8D9FA;
-    transform: translateY(-3px) scale(1.015);
+.sidebar .footer button.copy-invite-button:hover {
+    background-position: 100% 50% !important;
+    border-color: #E8D9FA !important;
+    transform: translateY(-3px) scale(1.015) !important;
 
     box-shadow:
         0 7px 18px rgba(153, 104, 210, 0.35),
         0 0 12px rgba(197, 165, 237, 0.25),
-        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+        inset 0 1px 2px rgba(255, 255, 255, 0.3) !important;
 
-    filter: brightness(1.12);
+    filter: brightness(1.12) !important;
 }
 
-.copy-invite-button:active {
-    transform: translateY(0) scale(0.98);
+.sidebar .footer button.copy-invite-button:active {
+    transform: translateY(0) scale(0.98) !important;
     box-shadow:
-        0 2px 5px rgba(0, 0, 0, 0.25);
+        0 2px 5px rgba(0, 0, 0, 0.25) !important;
 }
 
-.copy-invite-button:focus-visible {
-    outline: 2px solid var(--lime);
-    outline-offset: 3px;
+.sidebar .footer button.copy-invite-button:focus-visible {
+    outline: 2px solid var(--lime) !important;
+    outline-offset: 3px !important;
 }
 
 
 /* SUCCESS STATE */
 
-.copy-invite-button.copied {
+.sidebar .footer button.copy-invite-button.copied {
     background: linear-gradient(
         110deg,
         #386B2B,
         #5A9D3A
-    );
+    ) !important;
 
-    background-size: 200% 200%;
-    border-color: #A6FF45;
-    color: #FFFFFF;
+    background-size: 200% 200% !important;
+    border-color: #A6FF45 !important;
+    color: #FFFFFF !important;
 
     box-shadow:
-        0 0 12px rgba(166, 255, 69, 0.25);
+        0 0 12px rgba(166, 255, 69, 0.25) !important;
 }
 
 
 /* ERROR STATE */
 
-.copy-invite-button.copy-failed {
+.sidebar .footer button.copy-invite-button.copy-failed {
     background: linear-gradient(
         110deg,
         #783D55,
         #A94C68
-    );
+    ) !important;
 
-    border-color: #E99AAF;
+    border-color: #E99AAF !important;
+    color: #FFFFFF !important;
 }
 
 
 /* FOOTER LINK */
 
-.footer-link {
-    display: inline-block;
-    width: fit-content;
-    color: var(--muted);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-decoration: none;
-    text-align: center;
+.sidebar .footer a.footer-link,
+.sidebar .footer a.footer-link:link,
+.sidebar .footer a.footer-link:visited {
+    display: inline-block !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    color: var(--muted) !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: 7px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    line-height: 1.3 !important;
+
+    text-decoration: none !important;
+    text-transform: none !important;
+    text-align: center !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 
     transition:
         color 0.2s ease,
         transform 0.2s ease,
-        text-shadow 0.2s ease;
+        text-shadow 0.2s ease !important;
 }
 
-.footer-link:hover {
-    color: var(--accent);
-    transform: translateY(-1px);
-    text-shadow: 0 0 9px rgba(197, 165, 237, 0.45);
+.sidebar .footer a.footer-link:hover {
+    color: var(--accent) !important;
+    text-decoration: none !important;
+    transform: translateY(-1px) !important;
+    text-shadow: 0 0 9px rgba(197, 165, 237, 0.45) !important;
 }
 
-.footer-link:focus-visible {
-    outline: 1px solid var(--accent);
-    outline-offset: 4px;
-    border-radius: 3px;
+.sidebar .footer a.footer-link:focus-visible {
+    outline: 1px solid var(--accent) !important;
+    outline-offset: 4px !important;
+    border-radius: 3px !important;
 }
