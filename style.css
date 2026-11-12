@@ -353,9 +353,6 @@ body {
     width: 100%;
 }
 
-
-/* OWNER AND ADMINS LABELS */
-
 .admin-role {
     width: 100%;
     margin: 0 0 12px;
@@ -469,9 +466,6 @@ body {
     box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
 }
 
-
-/* ADMIN PROFILE PICTURES */
-
 .admin-avatar {
     display: block;
     flex: 0 0 38px;
@@ -483,9 +477,6 @@ body {
     border: 1px solid rgba(232, 217, 250, 0.35);
 }
 
-
-/* ADMIN USERNAMES */
-
 .admin-name {
     min-width: 0;
     overflow-wrap: anywhere;
@@ -494,9 +485,6 @@ body {
     font-weight: 800;
     letter-spacing: 0.2px;
 }
-
-
-/* ADMIN LIST */
 
 .admin-list {
     display: flex;
@@ -655,172 +643,145 @@ body {
 
 
 /* =====================================
-   COPY INVITE BUTTON
+   FOOTER
 ===================================== */
 
-.copy-invite-wrapper {
+.footer {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 10px;
     width: 100%;
-    margin-top: 16px;
+    margin-top: 15px;
+    padding: 5px 0 3px;
 }
+
+
+/* COPY INVITE BUTTON */
 
 .copy-invite-button {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 9px;
+    display: block;
     width: 100%;
     min-height: 43px;
-    padding: 10px 15px;
-    overflow: hidden;
+    padding: 11px 16px;
 
     background: linear-gradient(
         110deg,
-        #7650A8 0%,
-        #A477D8 48%,
-        #C5A5ED 100%
+        #7650A5 0%,
+        #A06BD0 45%,
+        #7650A5 100%
     );
 
     background-size: 200% 200%;
 
-    border: 1px solid rgba(232, 217, 250, 0.45);
+    border: 1px solid #C5A5ED;
     border-radius: 13px;
 
     color: #FFFFFF;
     font-family: inherit;
     font-size: 11px;
     font-weight: 900;
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
 
+    text-align: center;
     cursor: pointer;
 
     box-shadow:
-        0 3px 10px rgba(130, 83, 181, 0.25),
+        0 3px 10px rgba(0, 0, 0, 0.25),
         inset 0 1px 1px rgba(255, 255, 255, 0.2);
 
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease,
         background-position 0.4s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
         filter 0.25s ease;
 }
 
-.copy-invite-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 70%;
-    height: 100%;
-
-    background: linear-gradient(
-        100deg,
-        transparent,
-        rgba(255, 255, 255, 0.3),
-        transparent
-    );
-
-    transform: skewX(-20deg);
-    transition: left 0.55s ease;
-}
-
 .copy-invite-button:hover {
-    transform: translateY(-3px) scale(1.015);
     background-position: 100% 50%;
-
     border-color: #E8D9FA;
+    transform: translateY(-3px) scale(1.015);
 
     box-shadow:
-        0 7px 18px rgba(165, 117, 216, 0.4),
-        0 0 12px rgba(197, 165, 237, 0.2);
+        0 7px 18px rgba(153, 104, 210, 0.35),
+        0 0 12px rgba(197, 165, 237, 0.25),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
 
-    filter: brightness(1.08);
-}
-
-.copy-invite-button:hover::before {
-    left: 150%;
+    filter: brightness(1.12);
 }
 
 .copy-invite-button:active {
     transform: translateY(0) scale(0.98);
     box-shadow:
-        0 2px 5px rgba(130, 83, 181, 0.25);
+        0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
 .copy-invite-button:focus-visible {
-    outline: 2px solid var(--lavender);
+    outline: 2px solid var(--lime);
     outline-offset: 3px;
 }
 
-.copy-invite-button:disabled {
-    cursor: default;
-}
 
-.copy-invite-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 900;
-    transition: transform 0.25s ease;
-}
-
-.copy-invite-button:hover .copy-invite-icon {
-    transform: translate(2px, -2px);
-}
+/* SUCCESS STATE */
 
 .copy-invite-button.copied {
     background: linear-gradient(
         110deg,
-        #477B36,
-        #6BAF48,
-        #91D96A
+        #386B2B,
+        #5A9D3A
     );
 
     background-size: 200% 200%;
-    border-color: #B9FF99;
-    box-shadow: 0 0 12px rgba(166, 255, 69, 0.2);
+    border-color: #A6FF45;
+    color: #FFFFFF;
+
+    box-shadow:
+        0 0 12px rgba(166, 255, 69, 0.25);
 }
+
+
+/* ERROR STATE */
 
 .copy-invite-button.copy-failed {
     background: linear-gradient(
         110deg,
-        #843D4B,
-        #B65B6C
+        #783D55,
+        #A94C68
     );
-    border-color: #E89BA8;
+
+    border-color: #E99AAF;
 }
 
 
-/* =====================================
-   FOOTER
-===================================== */
+/* FOOTER LINK */
 
-.footer {
-    width: 100%;
-    margin-top: 11px;
-    padding-bottom: 3px;
-    text-align: center;
-    font-size: 9px;
-    font-weight: 600;
-    letter-spacing: 1px;
+.footer-link {
+    display: inline-block;
+    width: fit-content;
     color: var(--muted);
-}
-
-.footer a {
-    color: var(--accent);
-    font-weight: 900;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
     text-decoration: none;
+    text-align: center;
+
     transition:
         color 0.2s ease,
+        transform 0.2s ease,
         text-shadow 0.2s ease;
 }
 
-.footer a:hover {
-    color: var(--lavender);
-    text-shadow: 0 0 8px rgba(197, 165, 237, 0.65);
-    text-decoration: underline;
+.footer-link:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+    text-shadow: 0 0 9px rgba(197, 165, 237, 0.45);
+}
+
+.footer-link:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 3px;
 }
