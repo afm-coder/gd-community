@@ -436,9 +436,30 @@
     </div>
 
 
+    <!-- COPY INVITE BUTTON -->
+    <div class="copy-invite-wrapper">
+
+        <button
+            type="button"
+            class="copy-invite-button"
+            id="copy-invite-button"
+            onclick="copyInviteLink()"
+        >
+            <span class="copy-invite-icon">↗</span>
+            <span id="copy-invite-text">COPY INVITE</span>
+        </button>
+
+    </div>
+
+
     <!-- FOOTER -->
     <div class="footer">
-        GD COMMUNITY
+        sidebar by
+        <a
+            href="https://www.chess.com/member/afm_plays_chess"
+            target="_blank"
+            rel="noopener noreferrer"
+        >afm</a>
     </div>
 
 </div>
@@ -621,6 +642,93 @@ setInterval(
     updateMemberCount,
     5 * 60 * 1000
 );
+
+</script>
+
+
+<!-- COPY INVITE SCRIPT -->
+<script>
+
+async function copyInviteLink() {
+
+    const inviteLink =
+        "https://www.chess.com/club/gd-community/join";
+
+    const button =
+        document.getElementById("copy-invite-button");
+
+    const buttonText =
+        document.getElementById("copy-invite-text");
+
+    try {
+
+        if (navigator.clipboard && window.isSecureContext) {
+
+            await navigator.clipboard.writeText(inviteLink);
+
+        } else {
+
+            const temporaryInput =
+                document.createElement("textarea");
+
+            temporaryInput.value = inviteLink;
+            temporaryInput.style.position = "fixed";
+            temporaryInput.style.opacity = "0";
+            temporaryInput.style.pointerEvents = "none";
+
+            document.body.appendChild(temporaryInput);
+
+            temporaryInput.focus();
+            temporaryInput.select();
+
+            const copied =
+                document.execCommand("copy");
+
+            temporaryInput.remove();
+
+            if (!copied) {
+                throw new Error("Clipboard copy failed");
+            }
+
+        }
+
+
+        buttonText.textContent = "COPIED! ✓";
+
+        button.classList.add("copied");
+
+        button.disabled = true;
+
+        setTimeout(() => {
+
+            buttonText.textContent = "COPY INVITE";
+
+            button.classList.remove("copied");
+
+            button.disabled = false;
+
+        }, 2000);
+
+
+    } catch (error) {
+
+        console.error("Could not copy invite link:", error);
+
+        buttonText.textContent = "COPY FAILED";
+
+        button.classList.add("copy-failed");
+
+        setTimeout(() => {
+
+            buttonText.textContent = "COPY INVITE";
+
+            button.classList.remove("copy-failed");
+
+        }, 2000);
+
+    }
+
+}
 
 </script>
 
